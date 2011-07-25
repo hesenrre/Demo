@@ -1,3 +1,4 @@
+Titanium.include("db/staticdb.js");
 var w = Titanium.UI.currentWindow;
 var imageView = Titanium.UI.createImageView({
 	image: "../images/sucursales.png",
@@ -7,34 +8,88 @@ var imageView = Titanium.UI.createImageView({
 });
 w.add(imageView);
 
-var data = [
-	{title:'Mundo E', hasChild:true, lat:19.525575, lon:-99.228258},
-	{title:'WTC', hasChild:true, lat:19.394068, lon:-99.173337},
-	{title:'Prado Norte', hasChild:true, lat:19.427946, lon:-99.208152},
-	{title: 'Lomas Verdes', hasChild:true, lat:19.514331, lon:-99.266388},
-	{title: 'Parque Delta', hasChild:true, lat:19.402528, lon:-99.154122}
-];
+var scroll = Titanium.UI.createScrollView({
+	contentHeight: "auto",
+	showVerticalScrollIndicator: true,
+	top: 95
+});
+w.add(scroll);
 
+var getData = function(branch){
+	var branchData = {
+		id: branch.id,
+		branchname: branch.name,
+		hasChild:true,
+		height: "auto",
+	};
+
+	if(branch.header) {
+		branchData.header=branch.header
+	}
+	return branchData;
+}
+
+
+var data = [];
+for (var i=0; i < branch.length; i++) {
+	
+	var branchRow = Titanium.UI.createTableViewRow(getData(branch[i]));
+	Ti.API.info(branch[i].thumbnail);
+	var thumb = Ti.UI.createImageView({
+		image: branch[i].thumbnail,
+		height: 60,
+		width: 60,
+		top: 0,
+		left: 0
+	});
+	var name = Ti.UI.createLabel({
+		text:branch[i].name,		
+		font: {
+			fontSize:16,
+			fontWeight:'bold'
+		},
+		textAlign:'left',
+		height:16,
+		width: 'auto',
+		left: 65,
+		top: 2
+	});
+	var addrs = Ti.UI.createLabel({
+		text:branch[i].address,
+		width:'auto',
+		color:'#666666',
+		font: {
+			fontSize:12
+		},
+		height: "auto",
+		left:65,
+		top:20
+	});
+	branchRow.add(thumb);
+	branchRow.add(name);
+	branchRow.add(addrs);
+	data.push(branchRow);
+}
+
+var search = Titanium.UI.createSearchBar({
+	showCancel:false,
+	hintText: "Search hotel by name"
+});
 
 var tableview = Titanium.UI.createTableView({
 	data:data,
-	top: 120
+	search:search,
+	filterAttribute: 'branchname',
 });
+scroll.add(tableview);
 
-tableview.addEventListener('click', function(e) {
-
+tableview.addEventListener("click", function(e) {
 	var win = Titanium.UI.createWindow({
-		url:"sucursales_det.js",
-		title:e.rowData.title,
-		lat:e.rowData.lat,
-		lon:e.rowData.lon
+		url:"sucursales/detail.js",
+		title: e.rowData.branchname,
+		backgroundColor: "stripped",
+		id:e.rowData.id
 	});
-	win.hideTabBar();
 	win.showNavBar();
-	Titanium.UI.currentTab.open(win, {
-		animated:true
-	});
-
+	Titanium.UI.currentTab.open(win, {animated:true});
 });
-
-w.add(tableview);

@@ -20,22 +20,22 @@ buildTab({
 	container: tabGroup
 });
 
-buildTab({
-	win: {
-		title:"Favoritos",
-		script: "options/favorites.js"
-	},
-	tab: {
-		icon: "KS_nav_ui.png",
-		title: "Favoritos"
-	},
-	hideNavBar: true,
-	container: tabGroup
-});
+// buildTab({
+	// win: {
+		// title:"Favoritos",
+		// script: "options/favorites.js"
+	// },
+	// tab: {
+		// icon: "KS_nav_ui.png",
+		// title: "Favoritos"
+	// },
+	// hideNavBar: true,
+	// container: tabGroup
+// });
 
 buildTab({
 	win: {
-		title:"Favoritos",
+		title:"Sucursales",
 		script: "options/sucursales.js"
 	},
 	tab: {
@@ -46,18 +46,18 @@ buildTab({
 	container: tabGroup
 });
 
-buildTab({
-	win: {
-		title:"Favoritos",
-		script: "options/novedades.js"
-	},
-	tab: {
-		icon: "KS_nav_ui.png",
-		title: "Novedades"
-	},
-	hideNavBar: true,
-	container: tabGroup
-});  
+// buildTab({
+	// win: {
+		// title:"Favoritos",
+		// script: "options/novedades.js"
+	// },
+	// tab: {
+		// icon: "KS_nav_ui.png",
+		// title: "Novedades"
+	// },
+	// hideNavBar: true,
+	// container: tabGroup
+// });  
 // open tab group
 tabGroup.open({
 	transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT

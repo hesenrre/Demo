@@ -25,16 +25,19 @@ var tf = Titanium.UI.createButton({
 	backgroundImage: "../images/menu_index_cold.png",
 	top: 160,
 	height: 50,
+	width: 300
 });
 var tc = Titanium.UI.createButton({
 	backgroundImage: "../images/menu_index_hot.png",
 	top: 220,
 	height: 50,
+	width: 300
 });
 var ac = Titanium.UI.createButton({
 	backgroundImage: "../images/menu_index_eat.png",
 	top: 290,
-	height: 50
+	height: 50,
+	width: 300
 });
 
 tf.addEventListener("click", function(e){

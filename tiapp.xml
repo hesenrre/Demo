@@ -7,13 +7,13 @@
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <id>Cielito</id>
+    <id>com.jwm</id>
     <name>Cielito</name>
     <version>1.0</version>
-    <publisher>jwmsolutions</publisher>
+    <publisher>hesenrre</publisher>
     <url>http://www.jwmsolutions.com</url>
     <description>not specified</description>
-    <copyright>2011 by jwmsolutions</copyright>
+    <copyright>2011 by hesenrre</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -22,7 +22,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>16b8414e-e4fd-4bd9-a365-b72fda6f29ab</guid>
+    <guid>76e2fd47-7586-4a38-b52d-8645fcb4aa06</guid>
 	<iphone>
 		<orientations device="iphone">
 			<orientation>Ti.UI.PORTRAIT</orientation>
